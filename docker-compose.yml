@@ -55,7 +55,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
-      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d sre_copilot"]
       interval: 5s
@@ -88,7 +88,7 @@ services:
 
   go-backend:
     build:
-      context: ./go-backend
+      context: ./go_backend
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     ports:
@@ -113,7 +113,7 @@ services:
 
       LOG_LEVEL: debug
     volumes:
-      - ./go-backend:/app         # live source mount for air hot-reload
+      - ./go_backend:/app         # live source mount for air hot-reload
       - go-mod-cache:/go/pkg/mod  # cache go modules across rebuilds
     depends_on:
       redis:
@@ -136,7 +136,7 @@ services:
 
   langgraph-service:
     build:
-      context: ./langgraph-service
+      context: ./langgraph_service
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     ports:
@@ -154,7 +154,8 @@ services:
       POSTGRES_DSN: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/sre_copilot?sslmode=disable
 
       SRE_INTERNAL_TOKEN: ${SRE_INTERNAL_TOKEN}
-      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OPENROUTER_MODEL: ${OPENROUTER_MODEL}
 
       LOG_LEVEL: debug
       MAX_CONCURRENT_ANALYSES: "3"
@@ -162,7 +163,7 @@ services:
       HUMAN_INTERRUPT_TIMEOUT_SECONDS: "120"
 
     volumes:
-      - ./langgraph-service:/app   # live source mount — uvicorn --reload picks it up
+      - ./langgraph_service:/app   # live source mount — uvicorn --reload picks it up
     depends_on:
       redis:
         condition: service_healthy
@@ -234,8 +235,8 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-      - ./monitoring/alert.rules.yml:/etc/prometheus/alert.rules.yml:ro
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./alert.rules.yml:/etc/prometheus/alert.rules.yml:ro
       - prometheus-data:/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
@@ -249,7 +250,7 @@ services:
     ports:
       - "9093:9093"
     volumes:
-      - ./monitoring/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
     command:
       - "--config.file=/etc/alertmanager/alertmanager.yml"
     depends_on:

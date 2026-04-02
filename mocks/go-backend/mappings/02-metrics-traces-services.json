@@ -1,8 +1,6 @@
 {
     "mappings": [
-        {
-            "_comment": "GET /api/v1/metrics/catalog",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/metrics/catalog"
             },
@@ -92,9 +90,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/metrics/query — error rate spike on payment-api",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/metrics/query",
                 "queryParameters": {
@@ -186,9 +182,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/metrics/query — DB pool waiting connections (the real root cause)",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/metrics/query",
                 "queryParameters": {
@@ -266,9 +260,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/metrics/query — catch-all for any other metric",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/metrics/query"
             },
@@ -300,9 +292,7 @@
                 }
             }
         },
-        {
-            "_comment": "POST /api/v1/metrics/query/batch",
-            "request": {
+        {            "request": {
                 "method": "POST",
                 "url": "/api/v1/metrics/query/batch"
             },
@@ -360,9 +350,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/metrics/summary",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/metrics/summary"
             },
@@ -383,9 +371,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/traces/trace-abc123",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/traces/trace-abc123"
             },
@@ -460,9 +446,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/traces — search",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/traces"
             },
@@ -486,9 +470,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/services — service topology",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/services"
             },
@@ -585,9 +567,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/services/:id/health",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/services/.*/health"
             },

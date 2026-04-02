@@ -9,11 +9,11 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT"
 
 if [ ! -f .env ]; then
-  echo "❌  .env not found. Run: cp .env.example .env  then fill in your ANTHROPIC_API_KEY."
+  echo "❌  .env not found. Run: cp .env.example .env  then fill in your OPENROUTER_API_KEY."
   exit 1
 fi
 

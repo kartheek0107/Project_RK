@@ -1,8 +1,6 @@
 {
     "mappings": [
-        {
-            "_comment": "GET /api/v1/health",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/health"
             },
@@ -18,9 +16,7 @@
                 }
             }
         },
-        {
-            "_comment": "POST /api/v1/analyses — trigger analysis. Returns 202 immediately.",
-            "request": {
+        {            "request": {
                 "method": "POST",
                 "url": "/api/v1/analyses"
             },
@@ -36,9 +32,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/analyses/analysis-mock-001 — cycles through states to simulate progress",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/analyses/analysis-mock-001"
             },
@@ -66,9 +60,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/analyses/analysis-completed — simulates a finished analysis (use this ID to test the completed state)",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/analyses/analysis-completed"
             },
@@ -96,9 +88,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/analyses/analysis-awaiting — simulates human-in-the-loop pause",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/analyses/analysis-awaiting"
             },
@@ -126,9 +116,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/analyses/analysis-failed — simulates a failed analysis",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/analyses/analysis-failed"
             },
@@ -156,9 +144,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/analyses — list",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/analyses"
             },
@@ -200,9 +186,7 @@
                 }
             }
         },
-        {
-            "_comment": "POST /api/v1/analyses/:id/cancel",
-            "request": {
+        {            "request": {
                 "method": "POST",
                 "urlPathPattern": "/api/v1/analyses/.*/cancel"
             },
@@ -217,9 +201,7 @@
                 }
             }
         },
-        {
-            "_comment": "POST /api/v1/analyses/:id/interrupt — analysis is awaiting_human",
-            "request": {
+        {            "request": {
                 "method": "POST",
                 "url": "/api/v1/analyses/analysis-awaiting/interrupt"
             },
@@ -235,9 +217,7 @@
                 }
             }
         },
-        {
-            "_comment": "POST /api/v1/analyses/:id/interrupt — analysis is NOT awaiting_human (returns 409)",
-            "request": {
+        {            "request": {
                 "method": "POST",
                 "urlPathPattern": "/api/v1/analyses/(?!analysis-awaiting).*/interrupt"
             },
@@ -256,9 +236,7 @@
                 }
             }
         },
-        {
-            "_comment": "Catch-all 404 for unknown analysis IDs",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/analyses/(?!analysis-mock-001|analysis-completed|analysis-awaiting|analysis-failed).*"
             },

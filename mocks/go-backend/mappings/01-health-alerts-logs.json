@@ -1,8 +1,6 @@
 {
     "mappings": [
-        {
-            "_comment": "GET /api/v1/ready",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/ready"
             },
@@ -16,9 +14,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/health",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/health"
             },
@@ -39,9 +35,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/alerts — returns two alerts, one firing, one resolved",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/alerts"
             },
@@ -103,9 +97,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/alerts/alert-001",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "url": "/api/v1/alerts/alert-001"
             },
@@ -139,9 +131,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/alerts/:id — 404 fallback for unknown IDs",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/alerts/(?!alert-001|alert-002).*"
             },
@@ -160,9 +150,7 @@
                 }
             }
         },
-        {
-            "_comment": "POST /api/v1/alerts/:id/acknowledge",
-            "request": {
+        {            "request": {
                 "method": "POST",
                 "urlPathPattern": "/api/v1/alerts/.*/acknowledge"
             },
@@ -191,9 +179,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/logs — returns a mix of normal and error logs",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/logs"
             },
@@ -283,9 +269,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/logs/anomalies",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/logs/anomalies"
             },
@@ -324,9 +308,7 @@
                 }
             }
         },
-        {
-            "_comment": "GET /api/v1/logs/:id — single log entry",
-            "request": {
+        {            "request": {
                 "method": "GET",
                 "urlPathPattern": "/api/v1/logs/log-001"
             },
